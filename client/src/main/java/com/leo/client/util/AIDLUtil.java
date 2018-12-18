@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.leo.aidl.IService;
@@ -56,14 +57,14 @@ public class AIDLUtil {
         iService = null;
     }
 
-    public String request() {
+    public String request(@NonNull String func, @NonNull String params) {
         if (null == iService) {
             Log.i("LEO", "iService为null");
             return null;
         }
         Log.i("LEO", "发起AIDL请求");
         try {
-            String data = iService.getData("testFunc", "参数");
+            String data = iService.getData(func, params);
             return data;
         } catch (RemoteException e) {
             e.printStackTrace();

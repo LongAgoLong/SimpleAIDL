@@ -26,14 +26,21 @@ public class AIDLService extends Service {
             Log.i("LEO", "接收到请求");
             Log.i("LEO", "func：" + func + "；params：" + params);
             JSONObject jsonObject = new JSONObject();
-            try {
-                jsonObject.put("name", "mazaizhong");
-                jsonObject.put("sex", "man");
-                long millis = System.currentTimeMillis();
-                jsonObject.put("time", millis);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            switch (func) {
+                case "char":
+                    try {
+                        jsonObject.put("name", "mazaizhong");
+                        jsonObject.put("sex", "man");
+                        long millis = System.currentTimeMillis();
+                        jsonObject.put("time", millis);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "":
+                    break;
             }
+
             String s = jsonObject.toString();
             return s;
         }

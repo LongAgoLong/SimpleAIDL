@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 AIDLUtil.getInstance().unbindService(MainActivity.this);
                 break;
             case R.id.sendRequestBtn:
-                String request = AIDLUtil.getInstance().request();
+                String request = AIDLUtil.getInstance().request("char", "");
                 if (!TextUtils.isEmpty(request)) {
                     mResultTv.append(request);
                     mResultTv.append("\n");
