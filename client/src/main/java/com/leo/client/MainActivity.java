@@ -37,13 +37,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.bindBtn:
                 AIDLUtil.getInstance().bindService(MainActivity.this);
+                mResultTv.append("绑定服务\n");
                 break;
             case R.id.unbindBtn:
                 AIDLUtil.getInstance().unbindService(MainActivity.this);
+                mResultTv.append("解除绑定\n");
                 break;
             case R.id.sendRequestBtn:
                 String request = AIDLUtil.getInstance().request("char", "");
                 if (!TextUtils.isEmpty(request)) {
+                    mResultTv.append("接收到返回数据");
                     mResultTv.append(request);
                     mResultTv.append("\n");
                 }
